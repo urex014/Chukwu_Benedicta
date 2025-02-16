@@ -41,23 +41,35 @@
     }
 
 
-    // Modal Video
     $(document).ready(function () {
         var $videoSrc;
+    
+        // When the play button is clicked, set the video source
         $('.btn-play').click(function () {
             $videoSrc = $(this).data("src");
+            console.log($videoSrc); // Debugging: Check the video source
         });
-        console.log($videoSrc);
-
+    
+        // When the modal is shown, set the video source and play the video
         $('#videoModal').on('shown.bs.modal', function (e) {
-            $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
-        })
-
+            // Set the video source
+            $("#videoSource").attr('src', $videoSrc);
+            // Load and play the video
+            const video = document.getElementById('video');
+            video.load(); // Load the video
+            video.play().catch(error => {
+                console.error("Autoplay failed:", error);
+                // Handle autoplay restrictions (e.g., show a play button)
+            });
+        });
+    
+        // When the modal is hidden, pause and reset the video
         $('#videoModal').on('hide.bs.modal', function (e) {
-            $("#video").attr('src', $videoSrc);
-        })
+            const video = document.getElementById('video');
+            video.pause(); // Pause the video
+            video.currentTime = 0; // Reset the video to the start
+        });
     });
-
 
     // Scroll to Bottom
     $(window).scroll(function () {
@@ -114,4 +126,3 @@
     });
     
 })(jQuery);
-
