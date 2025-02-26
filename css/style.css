@@ -47,6 +47,26 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  scroll-behavior: smooth;
+}
+#about{
+  background-color: rgba(225,225,225,0.02);
+  backdrop-filter: blur 15px;
+  border: solid;
+}
+.about-me{
+  text-decoration: none;
+  background-color: rgba(0,0,0,0.01);
+  backdrop-filter: blur 15px;
+  color: white;
+  border-radius: 10px;
+}
+.about-me a{
+  text-decoration: none;
+  color: #fff;
+}
+.about-me a:hover{
+  text-decoration: none;
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -59,9 +79,10 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #6c757d;
+  color: #31373d;
   text-align: left;
-  background-color: #ffffff;
+  background-color: rgba(225,225,225,0.3);
+  backdrop-filter: blur 15px;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
